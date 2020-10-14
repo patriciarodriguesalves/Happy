@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  color: #fff;
+}
+
+:root {
+  /*Pelo root eu controle o quanto quero que as fontes em rem fiquem*/
+  font-size: 62.5%;
+}
+
+body,
+input,
+button,
+textarea {
+  /*Rem equivale a 18px*/
+  font: 400 1.8rem/1 "Nunito", sans-serif;
+}
