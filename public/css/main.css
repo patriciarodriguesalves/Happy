@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,8 +10,8 @@ body {
 }
 
 :root {
-  /*Pelo root eu controle o quanto quero que as fontes em rem fiquem*/
-  font-size: 62.5%;
+  /*Pelo root eu controle o quanto quero que as fontes em rem fiquem 62,5*/
+  font-size: 50%;
 }
 
 body,

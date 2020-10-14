@@ -9,13 +9,34 @@
 
 #container {
   margin: auto;
-  width: 90%;
+
+  /*Controla o valor máximo desejado
+  Aplica ou 90% ou 112rem dependendo do tamanho da tela*/
+  width: min(90%, 112rem); /*1120 pixels*/
+}
+
+#logo {
+  animation-delay: 50ms;
+}
+
+.location {
+  animation-delay: 100ms;
 }
 
 .location,
 h1,
 .visit p {
   height: 16vh;
+}
+
+main h1 {
+  animation-delay: 150ms;
+  /*min, desejável e máximo*/
+  font-size: clamp(4rem, 8vw, 8.4rem);
+}
+
+.visit p {
+  animation-delay: 200ms;
 }
 
 .visit a {
@@ -33,28 +54,63 @@ h1,
   margin: 0 auto;
 
   transition: background .2s;
+  animation-delay: 250ms;
 }
 
 .visit a:hover {
   background: #96feff;
 }
 
-#logo {
-  animation-delay: 50ms;
-}
+/*Desktop version*/
 
-.location {
-  animation-delay: 100ms;
-}
+@media(min-width: 760px) {
 
-main h1 {
-  animation-delay: 150ms;
-}
+  #container{
+    padding: 5rem 2rem;
+    /*Shorthand background: image no-repeat position / size*/
+    background: url('../images/bg.svg') no-repeat 80% / clamp(30rem, 54vw, 56rem);
+  }
 
-.visit p {
-  animation-delay: 200ms;
-}
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.visti a {
-  animation-delay: 250ms;
+  .location, h1, .visit p {
+    height: initial;
+    text-align: initial;
+  }
+
+  .visit{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+  }
+  .visit p{
+    font-size: 2.4rem;
+    line-height: 1.5;
+    width: clamp(20rem, 20vw, 30rem);
+  }
+
+  .visit a{
+    margin: initial;
+  }
+
+  .location{
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+
+  main h1{
+    font-weight: bold;
+    line-height: .88;
+
+    margin: clamp(10%, 9vh, 12%) 0 4rem;
+
+    width: min(300px, 80%);
+  }
+
+
 }
