@@ -1,0 +1,27 @@
+#page-create-orphanage{
+    display: flex;
+    min-height: 100vh;
+}
+
+/*Se o pai está como display:flex o main vai se ajustar 
+conforme o espaço com o flex:1*/
+main{
+    flex: 1;
+}
+
+.map-container{
+    margin: 0 0 4rem;
+}
+
+.map-container .leaflet-container{
+    border-radius: 20px 20px 0 0;
+}
+
+.map-container footer{
+    background: #F5F8FA;
+    border-radius:0 0 20px 20px;
+}
+
+
+
+
