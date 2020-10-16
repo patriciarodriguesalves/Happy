@@ -1,7 +1,11 @@
 //setView([latitude, longitude],zoom)
 //Create map
-const map = L.map('mapid').setView([-23.5835824,-46.5931261], 17);
+const map = L.map('mapid').setView([-23.5835853,-46.596452], 17);
 
+//create and add TileLayer
+L.tileLayer(
+        'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+         ).addTo(map);
 
 //Create icon
 const icon = L.icon({
@@ -11,24 +15,37 @@ const icon = L.icon({
     popupAnchor: [170,2]
 })
 
-//Create popup overlay
-const popup = L.popup({
-    closeButton: false,
-    className: 'map-popup',
-    minWidth: 240,
-    minHeight: 240
-}).setContent
-('Casa Madre Assunta Marchetti <a href="/orphanage?id=1" class="choose-orphanage"><img src="/images/arrow-white.svg"></a>')
 
+function addMarker({id, name, lat, lng}){
 
-//create and add TileLayer
-L.tileLayer(
-    'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-    ).addTo(map);
+    //Create popup overlay
+    const popup = L.popup({
+        closeButton: false,
+        className: 'map-popup',
+        minWidth: 240,
+        minHeight: 240
+    }).setContent(`${name} <a href="/orphanage?id=${id}"><img src="/images/arrow-white.svg"></a>`)
 
+     console.log(popup);
 
     //Create and add marker
-L.marker([-23.5835824,-46.5931261],{icon:icon})
-    .addTo(map)
-    .bindPopup(popup)
+    L.marker([lat, lng],{icon})
+        .addTo(map)
+        .bindPopup(popup)
+}
+
+const orphanagesSpan = document.querySelectorAll('.orphanages span');
+
+orphanagesSpan.forEach( span => {
+    const orphanage = {
+        id: span.dataset.id,
+        name: span.dataset.name,
+        lat: span.dataset.lat,
+        lng: span.dataset.lng
+    }
+
+    addMarker(orphanage);
+})
+
+
 
