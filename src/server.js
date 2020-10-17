@@ -7,6 +7,9 @@ const pages = require('./pages.js');
 const server = express()
 server
 
+    //Use requisition body
+    .use(express.urlencoded({extended: true}))
+
     //Using static files
     //Create a route of public files
     .use(express.static('public'))
@@ -20,6 +23,7 @@ server
     .get('/orphanages', pages.orphanages)
     .get('/orphanage', pages.orphanage)
     .get('/create-orphanage', pages.createOrphanage)
+    .post('/save-orphanage', pages.saveOrphanage)
 
 //Turn on the server -> listen the port
 server.listen(5500);

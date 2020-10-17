@@ -43,15 +43,15 @@
         </aside>
 
         <main class="animate-appear with-sidebar">
-            <form action="">
+            <form action="save-orphanage" method="post" onsubmit="validate(event)">
                 <fieldset>
                     <legend>Dados</legend>
 
                     <div class="map-container">
 
                         <div id="mapid"></div>
-                        <input type="hidden" name="lat">
-                        <input type="hidden" name="lng">
+                        <input type="hidden" name="lat" id="lat">
+                        <input type="hidden" name="lng" id="lng">
                         <footer>
                             <a href="#" id="select-point">
                                 Clique no mapa para adicionar a localização

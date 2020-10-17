@@ -74,13 +74,27 @@ function toggleSelect(event){
     const button =  event.currentTarget;
     button.classList.add('active');
 
-    const input = documento.querySelector('[name="open_on_weekends"]');
-
+    const input = document.querySelector('#open_on_weekends');
+    
     //Get the value of the button's data-value
     input.value = button.dataset.value;
+}
 
-
+function validate(event){
     
+    let needsLatAndLng;
+    const lat = document.querySelector('[name="lat"]');
+    const lng = document.querySelector('[name="lng"]');
 
+    if (lat.value == "" && lng.value == ""){
+       needsLatAndLng = true; 
+    } 
+
+    if(needsLatAndLng){
+        event.preventDefault();
+        alert('Selecione um ponto no mapa para incluir o endereço do Orfanato');
+    } 
+
+    needsLatAndLng = false;
 
 }
